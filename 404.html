@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join Class — UTOPIA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --fg: #f0ede6;
+      --muted: #555;
+      --line: rgba(255,255,255,0.07);
+      --accent: #c8b89a;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Syne', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 360px;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .head {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .name {
+      font-size: clamp(1.6rem, 5vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--line);
+      text-decoration: none;
+      color: var(--fg);
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+
+    a.link-item:hover {
+      color: var(--accent);
+    }
+
+    a.link-item:hover .arrow {
+      transform: translate(3px, -3px);
+      color: var(--accent);
+    }
+
+    .link-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .link-platform {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .link-handle {
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .code-value {
+      font-family: 'DM Mono', monospace;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+    }
+
+    .arrow {
+      font-size: 0.75rem;
+      color: var(--muted);
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .foot {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    @media (max-width: 400px) {
+      body { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="head">
+      <p class="tag">classes.inferalis.space</p>
+      <h1 class="name" id="heading">Join Class</h1>
+    </div>
+
+    <div class="links" id="link-list"></div>
+
+    <p class="foot">© 2026</p>
+
+  </div>
+
+  <script>
+    const path = window.location.pathname;
+    const linkList = document.getElementById('link-list');
+    const heading = document.getElementById('heading');
+
+    const isJoin = path.startsWith('/join/');
+    const code = isJoin ? path.split('/join/')[1]?.replace(/\//g, '').trim() : null;
+
+    if (isJoin && code) {
+      linkList.innerHTML = `
+        <div class="link-item">
+          <div class="link-left">
+            <span class="link-platform">Class Code</span>
+            <span class="link-handle code-value">${code}</span>
+          </div>
+        </div>
+        <a class="link-item" href="https://inferalis.space/download">
+          <div class="link-left">
+            <span class="link-platform">Android</span>
+            <span class="link-handle">Download UTOPIA to join</span>
+          </div>
+          <span class="arrow">↓</span>
+        </a>
+      `;
+    } else {
+      heading.textContent = 'Invalid Link';
+      linkList.innerHTML = `
+        <a class="link-item" href="https://inferalis.space">
+          <div class="link-left">
+            <span class="link-platform">Inferalis</span>
+            <span class="link-handle">Go to inferalis.space</span>
+          </div>
+          <span class="arrow">↗</span>
+        </a>
+      `;
+    }
+  </script>
+</body>
+</html>
