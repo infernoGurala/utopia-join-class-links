@@ -2,10 +2,10 @@
   {
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
-      "namespace": "android_app",
-      "package_name": "PACKAGE_NAME_HERE",
+      "namespace": "com.example.utopia_app",
+      "package_name": "com.example.utopia_app",
       "sha256_cert_fingerprints": [
-        "SHA256_HERE"
+        "C1:F3:8E:20:E4:E6:27:2D:AC:C8:5B:5B:BC:51:FE:BD:4C:E8:12:CE:A7:0E:E1:44:BC:17:E8:9E:B3:53:1C:14"
       ]
     }
   }
