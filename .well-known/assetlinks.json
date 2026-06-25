@@ -1,11 +1,26 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.example.utopia_app",
       "sha256_cert_fingerprints": [
         "C1:F3:8E:20:E4:E6:27:2D:AC:C8:5B:5B:BC:51:FE:BD:4C:E8:12:CE:A7:0E:E1:44:BC:17:E8:9E:B3:53:1C:14"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.superwave.utopia",
+      "sha256_cert_fingerprints": [
+        "DB:B4:FD:EA:0A:FD:DA:53:EE:8A:12:93:39:C0:A8:7D:C4:74:0D:A8:9E:D3:C4:2C:DB:13:CC:05:7C:24:E7:96"
       ]
     }
   }
